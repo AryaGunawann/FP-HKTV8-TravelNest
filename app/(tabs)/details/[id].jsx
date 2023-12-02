@@ -151,7 +151,7 @@ const HotelDetail = () => {
                 color="white"
                 size={20}
               />
-              <Text style={styles.bookingText}>Booking Sekarang</Text>
+              <Text style={styles.bookingText}>Checkout</Text>
             </TouchableOpacity>
           </View>
         )}

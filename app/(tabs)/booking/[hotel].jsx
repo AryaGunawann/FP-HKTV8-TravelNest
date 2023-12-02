@@ -24,8 +24,8 @@ const Booking = () => {
   const detail = useSelector((state) => state.detail.details);
   const today = new Date().toLocaleDateString("en-CA");
   const { hotel } = useLocalSearchParams();
-  const [checkIn, setCheckIn] = useState("Pilih Tanggal");
-  const [checkOut, setCheckOut] = useState("Pilih Tanggal");
+  const [checkIn, setCheckIn] = useState("Select Date");
+  const [checkOut, setCheckOut] = useState("Select Date");
   const [openModalCheckIn, setOpenModalCheckIn] = useState(false);
   const [openModalCheckOut, setOpenModalCheckOut] = useState(false);
   const { fullName, telp } = useSelector((state) => state.auth);
@@ -79,7 +79,7 @@ const Booking = () => {
               />
               <TouchableOpacity
                 onPress={() => setOpenModalCheckIn(!openModalCheckIn)}>
-                <Text style={{ fontFamily: "DMBold" }}>Tutup</Text>
+                <Text style={{ fontFamily: "DMBold" }}>Close</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -112,7 +112,7 @@ const Booking = () => {
               />
               <TouchableOpacity
                 onPress={() => setOpenModalCheckOut(!openModalCheckOut)}>
-                <Text style={{ fontFamily: "DMBold" }}>Tutup</Text>
+                <Text style={{ fontFamily: "DMBold" }}>Close</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -149,10 +149,10 @@ const Booking = () => {
             </TouchableOpacity>
             <View style={styles.contact}>
               <Text style={[styles.text]}>
-                Informasi Kontak
+                Contact Information
               </Text>
               <View style={{ gap: 5 }}>
-                <Text style={[styles.text]}>Nama</Text>
+                <Text style={[styles.text]}>Fullname</Text>
                 <TextInput
                   style={styles.input}
                   value={contactName}
@@ -160,7 +160,7 @@ const Booking = () => {
                 />
               </View>
               <View style={{ gap: 5 }}>
-                <Text style={[styles.text]}>Nomor Telepon</Text>
+                <Text style={[styles.text]}>Number</Text>
                 <TextInput
                   style={styles.input}
                   value={contactTelp}
@@ -193,7 +193,7 @@ const Booking = () => {
               }}>
               <Text style={styles.btnBooking}>
                 <MaterialCommunityIcons name="book-check" size={19}/>
-                Booking
+                Book Now
               </Text>
             </TouchableOpacity>
           </View>

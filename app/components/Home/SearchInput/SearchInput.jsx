@@ -22,7 +22,7 @@ const SearchInput = () => {
       <TextInput
         placeholderTextColor={COLOR.white}
         style={styles.searchInput}
-        placeholder="Mau kemana hari ini?"
+        placeholder="Where you wanna go?"
         value={search}
         onChangeText={(text) => setSearch(text)}
       />

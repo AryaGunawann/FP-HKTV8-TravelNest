@@ -52,7 +52,7 @@ const Settings = () => {
           gap: 10,
         }}>
         <Text style={{ fontFamily: "DMMedium", fontSize: 20 }}>
-          Belum login?
+        Not Logged in?
         </Text>
         <TouchableOpacity
           style={styles.btnLogin}

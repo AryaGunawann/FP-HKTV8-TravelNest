@@ -1,5 +1,14 @@
 import { Tabs } from "expo-router";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Text } from 'react-native';
+
+const CustomTabTitle = ({ focused, title }) => {
+  return (
+    <Text style={{ color: focused ? '#6D9773' : 'black' }}>
+      {title}
+    </Text>
+  );
+};
 
 export default function AppLayout() {
   return (
@@ -7,36 +16,44 @@ export default function AppLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <CustomTabTitle focused={focused} title="Home" />
+          ),
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons name="home" color={focused? '#6D9773' : {color}} size={26} />
           ),
         }}
       />
       <Tabs.Screen
         name="favorites"
         options={{
-          title: "Favorites",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="heart" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <CustomTabTitle focused={focused} title="Favorites" />
+          ),
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons name="heart"  color={focused? '#6D9773' : {color}} size={26}/>
           ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <CustomTabTitle focused={focused} title="Profile" />
+          ),
+          tabBarIcon: ({ color,focused }) => (
+            <MaterialCommunityIcons name="account"  color={focused? '#6D9773' : {color}} size={26}/>
           ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="cog" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <CustomTabTitle focused={focused} title="Settings" />
+          ),
+          tabBarIcon: ({ color,focused }) => (
+            <MaterialCommunityIcons name="cog"  color={focused? '#6D9773' : {color}} size={26}/>
           ),
         }}
       />
@@ -44,6 +61,7 @@ export default function AppLayout() {
         name="login"
         options={{
           href: null,
+          
         }}
       />
       <Tabs.Screen

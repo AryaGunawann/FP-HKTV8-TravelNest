@@ -17,7 +17,7 @@ const TopIndonesia = () => {
   return (
     <View>
       <Text style={{ fontFamily: "DMBold", color: "black" }}>
-        KOTA-KOTA DI INDONESIA
+        TOP DESTINATIONS IN INDONESIA
       </Text>
       <View>
         {!city ? (

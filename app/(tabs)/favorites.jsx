@@ -51,8 +51,8 @@ const Favorites = () => {
       <View style={styles.container}>
         {home.favorites.length < 1 ? (
           <View style={{ alignItems: "center" }}>
-            <Text style={{ fontFamily: "DMBold", fontSize: 20 }}>
-              Belum ada yang disimpan
+            <Text style={{ fontFamily: "DMBold", fontSize: 20, textAlign:"center" }}>
+              No Favorites yet.
             </Text>
           </View>
         ) : (
@@ -142,7 +142,7 @@ const Favorites = () => {
           gap: 10,
         }}>
         <Text style={{ fontFamily: "DMMedium", fontSize: 20 }}>
-          Belum login?
+          Not Logged in?
         </Text>
         <TouchableOpacity
           style={styles.btnLogin}

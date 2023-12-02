@@ -64,7 +64,7 @@ const Home = () => {
           color: "black",
           fontSize:20,
           paddingLeft:15 }}>
-        Selamat datang, {fullName}.
+        Welcome, {fullName}.
       </Text>
           <SearchInput />
           <View style={styles.container}>
@@ -94,7 +94,7 @@ const Home = () => {
           color: "black",
           fontSize:20,
           paddingLeft:15 }}>
-        Selamat datang.
+        Welcome.
       </Text>
           <SearchInput />
           <View style={styles.container}>

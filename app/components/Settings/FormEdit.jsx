@@ -81,14 +81,14 @@ const FormEdit = () => {
               color="green"
             />
             <Text style={{ fontFamily: "DMRegular", fontSize: 20 }}>
-              Data anda berhasil diupdate.
+              Successfully Updated.
             </Text>
           </View>
         </View>
       </Modal>
-      <Text style={styles.head}>Edit Profil</Text>
+      <Text style={styles.head}>Edit Profile</Text>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Nama Lengkap</Text>
+        <Text style={styles.label}>Fullname</Text>
         <TextInput
           value={newFullName}
           style={styles.input}
@@ -99,12 +99,12 @@ const FormEdit = () => {
         />
         {errorFullName && (
           <Text style={{ fontFamily: "DMMedium", color: "red" }}>
-            Format nama lengkap salah.
+            Wrong fullname format.
           </Text>
         )}
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Alamat Email</Text>
+        <Text style={styles.label}>Email Address</Text>
         <TextInput
           keyboardType="email-address"
           value={newEmail}
@@ -116,7 +116,7 @@ const FormEdit = () => {
         />
         {errorEmail && (
           <Text style={{ fontFamily: "DMMedium", color: "red" }}>
-            Format email salah.
+            Wrong email format.
           </Text>
         )}
       </View>
@@ -133,7 +133,7 @@ const FormEdit = () => {
         />
         {errorPassword && (
           <Text style={{ fontFamily: "DMMedium", color: "red" }}>
-            Format password salah.
+            Wrong password format.
           </Text>
         )}
         <TouchableOpacity
@@ -151,7 +151,7 @@ const FormEdit = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Nomor Telepon</Text>
+        <Text style={styles.label}>Number</Text>
         <TextInput
           keyboardType="numeric"
           value={newTelp}
@@ -163,7 +163,7 @@ const FormEdit = () => {
         />
         {errorTelp && (
           <Text style={{ fontFamily: "DMMedium", color: "red" }}>
-            Format nomor telepon salah.
+            Wrong number format.
           </Text>
         )}
       </View>
@@ -175,7 +175,7 @@ const FormEdit = () => {
             fontFamily: "DMBold",
             fontSize: 17,
           }}>
-          Simpan Data
+          Save changes
         </Text>
       </TouchableOpacity>
       <TouchableOpacity

@@ -13,6 +13,7 @@ import ICON from "../../constants/icon";
 import COLOR from "../../constants/color";
 import { useSelector, useDispatch } from "react-redux";
 import { clearBooking } from "../../redux/slice/bookingSlice";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const styles = StyleSheet.create({
   btnLogin: {
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   historyContainer: {
     justifyContent: "center",
     alignItems: "center",
-    gap: 10,
+    gap: 15,
   },
 });
 
@@ -84,9 +85,9 @@ const Profile = () => {
   const booking = useSelector((state) => state.booking.booking);
   const dispatch = useDispatch();
 
-  console.log(booking.map((item) => item.checkIn));
 
   return isLoggedIn ? (
+    <ScrollView>
     <View style={styles.container}>
       <Stack.Screen
           options={{
@@ -108,8 +109,8 @@ const Profile = () => {
           </View>
           <View
             style={{ flex: 1, justifyContent: "center", textAlign: "center" }}>
-            <Text style={{ fontFamily: "DMBold" }}>{fullName}</Text>
-            <Text style={{ fontFamily: "DMRegular" }}>{email}</Text>
+            <Text style={{ fontFamily: "DMBold", fontWeight:"bold", fontSize:24 }}>{fullName}</Text>
+            <Text style={{ fontFamily: "DMRegular"   }}>{email}</Text>
           </View>
         </View>
         <View style={styles.profileHistory}>
@@ -118,7 +119,7 @@ const Profile = () => {
               <Text>Bookings</Text>
             </View>
             <View>
-              <Text style={{ color: "#32a852", fontWeight: "bold" }}>
+              <Text style={{ color: "#6D9773", fontWeight: "bold", textAlign:"center" }}>
                 {booking.length}
               </Text>
             </View>
@@ -128,7 +129,7 @@ const Profile = () => {
               <Text>Favorites</Text>
             </View>
             <View>
-              <Text style={{ color: "#32a852", fontWeight: "bold" }}>
+              <Text style={{ color: "#6D9773", fontWeight: "bold", textAlign:"center" }}>
                 {favorite.length}
               </Text>
             </View>
@@ -137,10 +138,6 @@ const Profile = () => {
       </View>
       <View style={styles.listContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          <Text
-            style={{ padding: 10, fontWeight: "bold", textAlign: "center" }}>
-            List Booking
-          </Text>
           <TouchableOpacity onPress={() => dispatch(clearBooking())}>
             <Text
               style={{
@@ -149,7 +146,7 @@ const Profile = () => {
                 textAlign: "center",
                 color: "red",
               }}>
-              Hapus History
+              Delete History
             </Text>
           </TouchableOpacity>
         </View>
@@ -167,23 +164,28 @@ const Profile = () => {
                 <View>
                   <Image
                     source={{ uri: item.propertyGallery.images[0].image.url }}
-                    style={{ height: 50, width: 330, borderRadius: 10 }}
+                    style={{ height: 100, width: 330, borderRadius: 10 }}
                   />
                 </View>
                 <View>
                   <View>
-                    <Text style={{ fontFamily: "DMMedium" }}>
-                      Nama : {item.summary.name}
+                    <Text style={{ fontFamily: "DMMedium", fontSize:24, fontWeight:"bold" }}>
+                      {item.summary.name}
                     </Text>
                   </View>
                   <View>
-                    <Text style={{ fontFamily: "DMMedium" }}>
-                      Lokasi : {item.summary.location.address.addressLine}
+                    <Text style={{ fontFamily: "DMMedium", paddingTop:8 }}>
+                      {item.summary.location.address.addressLine}
                     </Text>
                   </View>
-                  <View>
-                    <Text style={{ fontFamily: "DMMedium" }}>
-                      Rating : {item.summary.overview.propertyRating.rating}
+                  <View style={{ display:"flex", flexDirection:"row", paddingTop:8}}>
+                  <MaterialCommunityIcons
+                        name="star"
+                        color={COLOR.accent}
+                        size={16}
+                      />
+                    <Text style={{ fontFamily: "DMMedium",}}>
+                      {item.summary.overview.propertyRating.rating}
                     </Text>
                   </View>
                   <View
@@ -196,13 +198,13 @@ const Profile = () => {
                     <View>
                       <Text style={{ fontFamily: "DMMedium" }}>Check In</Text>
                       <Text style={{ fontFamily: "DMMedium" }}>
-                        {booking.map((item) => item.checkIn)}
+                        {item.checkIn}
                       </Text>
                     </View>
                     <View>
                       <Text style={{ fontFamily: "DMMedium" }}>Check Out</Text>
                       <Text style={{ fontFamily: "DMMedium" }}>
-                        {booking.map((item) => item.checkOut)}
+                        {item.checkOut}
                       </Text>
                     </View>
                   </View>
@@ -213,6 +215,7 @@ const Profile = () => {
         )}
       </View>
     </View>
+    </ScrollView>  
   ) : (
     <ScrollView style={{ flex: 1 }}>
       <Stack.Screen
@@ -233,7 +236,7 @@ const Profile = () => {
           gap: 10,
         }}>
         <Text style={{ fontFamily: "DMMedium", fontSize: 20 }}>
-          Belum login?
+        Not Logged in?
         </Text>
         <TouchableOpacity
           style={styles.btnLogin}

@@ -32,7 +32,7 @@ const PopularIndonesia = () => {
   return (
     <>
       <Text style={{ fontFamily: "DMBold", color: "black" }}>
-        TEMPAT WISATA POPULER
+        POPULAR DESTINATIONS
       </Text>
       <Modal
         animationType="slide"
